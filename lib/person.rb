@@ -5,25 +5,42 @@ class Person
   attr_reader :name, :happiness, :hygiene
   attr_accessor :bank_account
 
-  def happiness=(num)
-    if num >10
-      @happiness = 10
-    elsif num <0
-      @happiness = 0
+  def max_min(instance,num)
+    if num>10
+      instance = 10
+    elsif num<0
+      instance = 0
     else
-      @happiness = num
+      instance = num
     end
   end
 
-  def hygiene=(num)
-    if num >10
-      @hygiene = 10
-    elsif num <0
-      @hygiene = 0
-    else
-      @hygiene = num
-    end
+  def happiness=(num)
+    @happiness=max_min(@happiness,num)
   end
+  def hygiene=(num)
+    @hygiene=max_min(@hygiene,num)
+  end
+
+  # def happiness=(num)
+  #   if num >10
+  #     @happiness = 10
+  #   elsif num <0
+  #     @happiness = 0
+  #   else
+  #     @happiness = num
+  #   end
+  # end
+  #
+  # def hygiene=(num)
+  #   if num >10
+  #     @hygiene = 10
+  #   elsif num <0
+  #     @hygiene = 0
+  #   else
+  #     @hygiene = num
+  #   end
+  # end
 
   def initialize(name)
     @name = name
